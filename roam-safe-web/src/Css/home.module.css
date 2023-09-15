@@ -1,0 +1,77 @@
+.banner_outer_div {
+  background-image: url("../Images/home_banner.webp");
+  background-repeat: no-repeat;
+  /* background-size: 100% 100%; */
+  background-size: cover;
+  padding: 9rem;
+}
+.banner_outer_container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+/* //////,.............welcome section........./////// */
+.welcome_image {
+  width: 100%;
+}
+.welcome_paragraph {
+  text-align: start !important;
+  font-size: 16px;
+}
+
+/* /////..............Our Service............../////// */
+.our_service_img {
+  width: 35%;
+}
+.ourservice_card_grid {
+  padding: 16px;
+}
+/* /////...................vendor.............../////////// */
+
+.vendor_img {
+  width: 100%;
+}
+.vendor_button{
+background: white !important;
+    color: black !important;
+    font-weight: 600 !important;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+    text-transform: capitalize !important;
+}
+
+.book_service_button{
+  background: green !important;
+    text-transform: capitalize !important;
+}
+.book_Emergency_service_button{
+ background: rgb(165, 1, 1) !important;
+    text-transform: capitalize !important;
+
+}
+
+
+@media screen and (max-width: 900px) {
+  .banner_outer_div {
+    background-image: url("../Images/home_banner.webp");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-size: cover; */
+    padding: 7rem;
+  }
+}
+.machanic{
+  padding: 8rem;
+}
+@media screen and (max-width: 600px) {
+  .machanic{
+  padding: 4rem;
+}
+  .banner_outer_div {
+    background-image: url("../Images/home_banner.webp");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-size: cover; */
+    padding: 3rem;
+  }
+}
