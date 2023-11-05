@@ -88,31 +88,7 @@ export default function Services() {
 
       setData(response.data)
   }
-  const addService = async (value) => {
-    const response =
-      Index === ""
-        ? await postApihandler("/addServices", value)
-        : await putApihandler(`/updateServices/${Id}`, value);
-    // console.log("response==>", response);
-    handleClose();
-    reset();
-
-    setIndex("");
-    if (response.status === 200) {
-      Swal.fire({
-        position: "middle-centre",
-        icon: "success",
-        title: Index === "" ? "Successfully Added" : "Successfully Update",
-        showConfirmButton: false,
-        timer: 2000,
-      });
-       getServices();
-    } else {
-      swal("Sorry!", `${response.error.response.data.message}`, "error").then(
-        (value) => {}
-      );
-    }
-  };
+ 
 
 const deleteProperty = (index) => {
   swal({
