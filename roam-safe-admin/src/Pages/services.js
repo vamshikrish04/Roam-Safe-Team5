@@ -88,8 +88,15 @@ export default function Services() {
 
       setData(response.data)
   }
- 
-
+  const addService = async (value) => {
+    const response =
+      Index === ""
+        ? await postApihandler("/addServices", value)
+        : await putApihandler(`/updateServices/${Id}`, value);
+    // console.log("response==>", response);
+    handleClose();
+    reset();
+  }
 const deleteProperty = (index) => {
   swal({
     title: "Are you sure?",
