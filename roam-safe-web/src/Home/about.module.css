@@ -1,0 +1,46 @@
+.about_banner_container{
+    background-image: url('../Images/about-car.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+.howitwork_banner_container{
+    background-image: url('../Images/howitwork.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+.about_banner_text{
+    padding: 17rem 0px 17rem 0px ;
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+   
+}
+.about_second_section_text{
+    padding: 3rem;
+    text-align: start;
+}
+.about_second_section_img{
+    width: 60%;
+}
+@media screen and (max-width: 900px) {
+.about_banner_text{
+    padding: 10rem 0px 10rem 0px ;
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+}
+}
+@media screen and (max-width: 600px) {
+.about_banner_text{
+    padding: 6rem 0px 6rem 0px ;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+}
+.about_second_section_text{
+    padding: 1rem;
+    text-align: start;
+}
+.about_second_section_img{
+    width: 100%;
+}
+}
