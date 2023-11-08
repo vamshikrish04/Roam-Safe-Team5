@@ -128,8 +128,20 @@ export default function Banner() {
         )}
 
         {/* ////////////.............Select Service model........//////////////// */}
-        
-               <Fade in={open}>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          slots={{ backdrop: Backdrop }}
+          slotProps={{
+            backdrop: {
+              timeout: 500,
+            },
+          }}
+        >
+          <Fade in={open}>
             <Box sx={style}>
               <Typography
                 id="transition-modal-title"
