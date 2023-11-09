@@ -96,7 +96,23 @@ export default function Services() {
     // console.log("response==>", response);
     handleClose();
     reset();
-  }
+
+    setIndex("");
+    if (response.status === 200) {
+      Swal.fire({
+        position: "middle-centre",
+        icon: "success",
+        title: Index === "" ? "Successfully Added" : "Successfully Update",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+       getServices();
+    } else {
+      swal("Sorry!", `${response.error.response.data.message}`, "error").then(
+        (value) => {}
+      );
+    }
+  };
 const deleteProperty = (index) => {
   swal({
     title: "Are you sure?",
