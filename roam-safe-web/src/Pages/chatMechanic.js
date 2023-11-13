@@ -65,7 +65,41 @@ export default function ChatMechanic() {
   console.log("clientId - ", clientId);
 
   // useState
-  
+  const [page, setPage] = React.useState(0);
+  const [message, setMessage] = React.useState("");
+  const [messageSent, setMessageSent] = React.useState(0);
+  console.log("message - ", message);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [data, setData] = React.useState([]);
+  const [messageText, setMessageText] = React.useState([]);
+  console.log("messageText - ", messageText);
+  const { register, handleSubmit, reset } = useForm();
+  console.log("data - ", data);
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  const [userId, setUserId] = React.useState();
+  console.log("userId - ", userId);
+  let history = useNavigate();
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  // useEffect
+  useEffect(() => {
+    if (userId !== undefined && userId !== null) {
+      getMechanicData();
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    if (userId !== undefined && userId !== null) {
+      getMessages();
+    }
+  }, [messageSent, userId]);
+
   // useEffect
   useEffect(() => {
     setUserId(localStorage.getItem("Id"));
