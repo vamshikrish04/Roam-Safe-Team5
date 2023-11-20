@@ -20,6 +20,7 @@ function PaymentBreakdown() {
   useEffect(()=>{
     getAmount();
 },[])
+//set
 const getAmount = async()=>{
   const res = await getApihandler(`/getAmountForEmergencyBooking/${bookingId}`);
   console.log("res-->", res);
