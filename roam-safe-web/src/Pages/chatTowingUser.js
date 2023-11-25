@@ -87,4 +87,165 @@ export default function ChatTowingUser() {
     setPage(0);
   };
 
-  
+  // useEffect
+  useEffect(() => {
+    if (userId !== undefined && userId !== null) {
+      getMechanicData();
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    if (userId !== undefined && userId !== null) {
+      getMessages();
+    }
+  }, [messageSent, userId]);
+
+  // useEffect
+  useEffect(() => {
+    setUserId(localStorage.getItem("Id"));
+  }, []);
+
+  const getMechanicData = async () => {
+    // const response = await getApihandler("/getAllUser/All");
+    const response = await getApihandler(`/getAllMechanic/id_${clientId}`);
+
+    console.log("reponse----->", response);
+    if (response.status === 200) {
+      setData(response.data);
+    }
+  };
+
+  const getMessages = async () => {
+    // console.log("get message url - ", `/getChat/${userId}/${clientId}`);
+    const response = await getApihandler(
+      `/getTowingChat/${userId}/${clientId}`
+    );
+    // console.log("get message response----->", response);
+    if (response.status === 200) {
+      setMessageText(response.data);
+    }
+  };
+
+  const onSubmit = async (value) => {
+    const response = await postApihandler(
+      `/sendTowingText/${userId}/${clientId}`,
+      {
+        type: "User",
+        text: message,
+      }
+    );
+    console.log("send message resp - ", response);
+    if (response.status === 200) {
+      setMessageSent(Math.random());
+    } else {
+      swal("Sorry!", `${response.error.response.data.message}`, "error");
+    }
+  };
+  return (
+    <Layout>
+      <Container style={{ marginTop: "50px", marginBottom: "80px" }}>
+        <Grid container style={{ justifyContent: "center" }}>
+          <Grid item>
+            <Link to="https://zoom.us/" target="_blank">
+              <Button
+                variant="contained"
+                color="error"
+                sx={{
+                  borderRadius: "10px",
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  textTransform: "capitalize",
+                }}
+              >
+                Zoom Meet
+              </Button>
+            </Link>
+          </Grid>
+        </Grid>
+        <h2
+          style={{ textAlign: "start", padding: "10px", textAlign: "center" }}
+          className="mt-5"
+        >
+          Chat Now
+        </h2>
+        <Grid container style={{ justifyContent: "center" }}>
+          <Grid item>
+            <Card
+              sx={{
+                minWidth: 350,
+                maxHeight: 300,
+                border: "1px solid green",
+              }}
+              className="my-4 p-4"
+            >
+              <CardContent
+                style={{ maxHeight: 180, overflowY: "scroll" }}
+                className="mb-4"
+              >
+                {messageText !== null &&
+                  messageText !== undefined &&
+                  messageText.map((val, ind) => {
+                    return (
+                      <Typography
+                        sx={{ fontSize: 16, fontWeight: 600 }}
+                        className={`text-${
+                          val.type === "User" ? "end" : "start"
+                        } text-${
+                          val.type === "User" ? "dark" : "primary"
+                        } mb-3`}
+                        // color="text.primary"
+                        // gutterBottom
+                      >
+                        {val.type === "User" ? "User." : "Towing."} &nbsp;&nbsp;&nbsp;
+                        {val.text}
+                      </Typography>
+                    );
+                  })}
+              </CardContent>
+              <CardActions>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Grid
+                    container
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gridRowGap: "10px",
+                    }}
+                    className="align-items-end"
+                  >
+                    <Grid xs={6}>
+                      <TextField
+                        fullWidth
+                        id="standard-basic"
+                        type="text"
+                        variant="standard"
+                        color="error"
+                        name="first_name"
+                        placeholder="Type Your Message "
+                        onChange={(e) => setMessage(e.target.value)}
+                      />
+                    </Grid>
+                    <Grid xs={6}>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="success"
+                        sx={{
+                          paddingLeft: "25px",
+                          paddingRight: "25px",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Send
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </form>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+    </Layout>
+  );
+}
