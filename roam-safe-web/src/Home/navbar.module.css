@@ -1,0 +1,72 @@
+.login_buttons{
+   background-color: #1855BB !important;
+   color: white !important;
+}
+.login_outer_box{
+    gap:2rem ;
+    display:flex;
+    margin-right:2rem;
+   
+}
+.nav_logo2{
+   width: 100%;
+   height: inherit;
+   
+}
+.button_outerdiv{
+   margin-left: 0px;
+}
+.login_signup{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+@media screen and (max-width:900px) {
+    .login_signup{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+   .login_outer_box{
+      margin-inline-start: auto;    
+  }
+  .button_outerdiv{
+   margin-left: 27rem;
+}
+}
+@media screen and (max-width: 600px) {
+   .login_signup{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+      .login_outer_box{
+         width: 11rem;
+      } 
+    
+   .login_buttons{
+      height: 22px;
+    width: 65px;
+    font-size: 9px !important;
+   }
+   .sign_button{
+      height: 22px;
+    width: 67px;
+    font-size: 8px !important;
+   }
+   .button_outerdiv{
+      margin-left: 20rem;
+   }
+}
+
+@media screen and (max-width:414px) {
+   .login_outer_box{
+      width: 10rem;
+      gap: 1rem;
+    } 
+    .button_outerdiv{
+      margin-left: 12rem;
+   }
+}
