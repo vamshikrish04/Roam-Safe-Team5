@@ -1,0 +1,97 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
+  padding-right: 24px;
+  min-width: 16px;
+  display: flex;
+}
+.card-form-container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Credit-card-css {
+  width: 50%;
+}
+.card-form {
+  display: block;
+  width: 450px;
+  margin: auto;
+
+  padding: 25px 30px;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.expiry-and-cvc-container {
+  display: flex;
+}
+
+.expiration-date-field {
+  display: inline-block;
+  flex: 1 1 auto;
+}
+
+.cvc-field {
+  display: inline-block;
+  flex: 0 0 100px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 600px) {
+  .card-form {
+    display: block;
+    width: 340px;
+    margin: auto;
+
+    padding: 25px 30px;
+    border-radius: 15px;
+    transition: all 0.3s;
+  }
+}
